@@ -1,8 +1,10 @@
 package com.github.glomadrian.velocimeter;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.SeekBar;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.github.glomadrian.velocimeterlibrary.VelocimeterView;
 
 public class MainActivity extends AppCompatActivity {
