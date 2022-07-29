@@ -4,6 +4,8 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.DashPathEffect;
 import android.graphics.Paint;
+import android.graphics.Path;
+import android.graphics.PathDashPathEffect;
 import android.graphics.RectF;
 import com.github.glomadrian.velocimeterlibrary.utils.DimensionUtils;
 
@@ -36,9 +38,9 @@ public class ProgressVelocimeterPainterImp implements ProgressVelocimeterPainter
   }
 
   private void initSize() {
-    this.lineWidth = DimensionUtils.getSizeInPixels(6, context);
-    this.lineSpace = DimensionUtils.getSizeInPixels(2, context);
-    this.strokeWidth = DimensionUtils.getSizeInPixels(20, context);
+    this.lineWidth = DimensionUtils.getSizeInPixels(1, context);
+    this.lineSpace = DimensionUtils.getSizeInPixels(3, context);
+    this.strokeWidth = DimensionUtils.getSizeInPixels(10, context);
   }
 
   private void init() {
@@ -46,13 +48,38 @@ public class ProgressVelocimeterPainterImp implements ProgressVelocimeterPainter
   }
 
   private void initPainter() {
+    float pathEff[] = new float[] {lineWidth, lineSpace, lineWidth, lineSpace, lineWidth, lineSpace, lineWidth, lineSpace, lineWidth, lineSpace, lineWidth, lineSpace, lineWidth, lineSpace, lineWidth, lineSpace, lineWidth, lineSpace, lineWidth, lineSpace, lineWidth, lineSpace, lineWidth, lineSpace, lineWidth, lineSpace, lineWidth, lineSpace, lineWidth, lineSpace, lineWidth, lineSpace, lineWidth, lineSpace, lineWidth, lineSpace, lineWidth, lineSpace, lineWidth, lineSpace, lineWidth, lineSpace, lineWidth, lineSpace, lineWidth, lineSpace, lineWidth, lineSpace, lineWidth, lineWidth+2*lineSpace};
     paint = new Paint();
     paint.setAntiAlias(true);
     paint.setAntiAlias(true);
     paint.setStrokeWidth(strokeWidth);
     paint.setColor(color);
     paint.setStyle(Paint.Style.STROKE);
-    paint.setPathEffect(new DashPathEffect(new float[] { lineWidth, lineSpace }, 0));
+    paint.setPathEffect(new DashPathEffect(pathEff, 0));
+    //paint.setPathEffect(new DashPathEffect(new float[] { lineWidth, lineSpace}, 0));
+    //paint.setPathEffect(new PathDashPathEffect(createRouteLineStyle(), 10, 3, PathDashPathEffect.Style.MORPH));
+    //paint.setPathEffect(new PathDashPathEffect(makeDefaultLinePath(), 100, 3, PathDashPathEffect.Style.MORPH));
+
+  }
+
+  private Path makeDefaultLinePath() {
+    Path p = new Path();
+//    p.moveTo(-15f, 6f);
+//    p.lineTo(-15f, -6f);
+//    p.lineTo(-10f, -6f);
+//    p.lineTo(-10f, -6f);
+//    p.close();
+    p.moveTo(0f, 6f);
+    p.lineTo(0f, -6f);
+    p.lineTo(5f, -6f);
+    p.lineTo(5f, 6f);
+    p.close();
+    p.moveTo(25f, 6f);
+    p.lineTo(25f, -6f);
+    p.lineTo(20f, -6f);
+    p.lineTo(20f, 6f);
+    p.close();
+    return p;
   }
 
   private void initExternalCircle() {

@@ -2,9 +2,8 @@ apply plugin: 'com.android.application'
 
 android {
   compileSdkVersion 31
-  buildToolsVersion "30.0.2"
 
-  defaultConfig {
+    defaultConfig {
     applicationId "com.github.glomadrian.velocimeter"
     minSdkVersion 16
     targetSdkVersion 31

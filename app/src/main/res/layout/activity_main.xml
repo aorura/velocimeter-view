@@ -36,8 +36,8 @@
     <com.github.glomadrian.velocimeterlibrary.VelocimeterView
         android:layout_gravity="center"
         android:id="@+id/velocimeter2"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_width="270dp"
+        android:layout_height="298.31dp"
         android:layout_weight="1"
         app:inside_progress_color="@color/inside_progress"
         app:external_progress_color="@color/external_progress"

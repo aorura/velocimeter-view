@@ -25,8 +25,8 @@ public class MainActivity extends AppCompatActivity {
   private class SeekListener implements SeekBar.OnSeekBarChangeListener {
 
     @Override public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-      velocimeter.setValue(progress, true);
-      velocimeter2.setValue(progress, true);
+      velocimeter.setValue(progress, false);
+      velocimeter2.setValue(progress, false);
     }
 
     @Override public void onStartTrackingTouch(SeekBar seekBar) {

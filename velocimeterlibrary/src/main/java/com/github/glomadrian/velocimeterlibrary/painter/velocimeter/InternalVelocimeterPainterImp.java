@@ -18,7 +18,7 @@ public class InternalVelocimeterPainterImp implements InternalVelocimeterPainter
   private int width;
   private int height;
   private float startAngle = 160;
-  private float finishAngle = 222;
+  private float finishAngle = 220;
   private int strokeWidth;
   private int blurMargin;
   private int lineWidth;
@@ -34,18 +34,19 @@ public class InternalVelocimeterPainterImp implements InternalVelocimeterPainter
   }
 
   private void initSize() {
-    this.lineWidth = DimensionUtils.getSizeInPixels(6, context);
-    this.lineSpace = DimensionUtils.getSizeInPixels(2, context);
-    this.strokeWidth = DimensionUtils.getSizeInPixels(20, context);
+    this.lineWidth = DimensionUtils.getSizeInPixels(1, context);
+    this.lineSpace = DimensionUtils.getSizeInPixels(3, context);
+    this.strokeWidth = DimensionUtils.getSizeInPixels(10, context);
   }
 
   private void initPainter() {
+    float pathEff[] = new float[] {lineWidth, lineSpace, lineWidth, lineSpace, lineWidth, lineSpace, lineWidth, lineSpace, lineWidth, lineSpace, lineWidth, lineSpace, lineWidth, lineSpace, lineWidth, lineSpace, lineWidth, lineSpace, lineWidth, lineSpace, lineWidth, lineSpace, lineWidth, lineSpace, lineWidth, lineSpace, lineWidth, lineSpace, lineWidth, lineSpace, lineWidth, lineSpace, lineWidth, lineSpace, lineWidth, lineSpace, lineWidth, lineSpace, lineWidth, lineSpace, lineWidth, lineSpace, lineWidth, lineSpace, lineWidth, lineSpace, lineWidth, lineSpace, lineWidth, lineWidth+2*lineSpace};
     paint = new Paint();
     paint.setAntiAlias(true);
     paint.setStrokeWidth(strokeWidth);
     paint.setColor(color);
     paint.setStyle(Paint.Style.STROKE);
-    paint.setPathEffect(new DashPathEffect(new float[] { lineWidth, lineSpace }, 0));
+    paint.setPathEffect(new DashPathEffect(pathEff, 0));
   }
 
   private void initCircle() {
